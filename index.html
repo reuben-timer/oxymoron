@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+	content="width=device-width,initial-scale=1.0">
+	<title>OXYMORON|Luxury Fashion</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			font-family: Arial, sans-serif;
+			background: #f7f5f0;
+			color: #171717;
+		}
+		header{
+			background: #111;
+			color: white;
+			padding: 22px 7%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap:18px;
+		}
+		.logo {
+			font-size: 27px;
+			letter-spacing: 5px;
+			font-weight: bold;
+		}
+		nav a {
+			color: white;
+			text-decoration: none;
+			margin-left: 20px;
+			font-size: 13px;
+		}
+		nav a:hover {
+			color: #c9a96e;
+		}
+		.hero {
+			min-height: 440px;
+			background: linear-gradient(90deg,
+				rgba(0,0,0,.8),
+				rgba(0,0,0,.15)
+				),
+			url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600');
+			background-size: cover;
+			background-position: center;
+			display: flex;
+			align-items: center;
+			padding: 8%;
+			color: white;
+		}
+		.hero-content {
+			max-width: 550px;
+		}
+		.hero h1 {
+			font-size: clamp(40px, 7vw, 70px);
+			letter-spacing: 3px;
+			margin-bottom: 18px;
+		}
+		.hero p {
+			font-size: 16px;
+			line-height: 1.8;
+			margin-bottom: 25px;
+		}
+		.btn {
+			display: inline-block;
+			background: #c9a96e;
+			color: #111;
+			padding: 14px 28px;
+			text-decoration: none;
+			cursor: pointer;
+			font-weight: bold;
+		}
+		.btn:hover {
+			background: white;
+		}
+		.section {
+			padding: 65px 7%;
+		}
+		.section-heading {
+			text-align: center;
+			margin-bottom: 35px;
+		}
+		.section-heading h2 {
+			font-size: 30px;
+			letter-spacing: 3px;
+		}
+		.section-heading p {
+			color: #777;
+			margin-top: 10px;
+		}
+		.filters {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		.filters button {
+			padding: 10px 18px;
+			margin: 5px;
+			background:transparent;
+			border: 1px solid #222;
+			cursor: pointer;
+		}
+		.filters button:hover,
+		.filters button.active {
+			background: #111;
+			color: white;
+		}
+		.products {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap:25px;
+		}
+		.product {
+			background: white;
+			padding-bottom: 20px;
+		}
+		.product img {
+			width: 100%;
+			height: 280px;
+			object-fit: cover;
+		}
+		.product-info {
+			padding: 17px;
+		}
+		.product-info h3 {
+			font-size: 17px;
+			margin-bottom: 8px;
+		}
+		.price {
+			color: #a17c40;
+			font-weight: bold;
+			margin-bottom: 15px;
+		}
+		.product button {
+			width: 100%;
+			padding: 12px;
+			background: #111;
+			color: white;
+			border: none;
+			cursor: pointer;
+		}
+		.product button:hover {
+			background: #a17c40;
+		}
+		.cart {
+			background: #eae5db;
+			padding: 35px 7%;
+		}
+		.cart h2 {
+			margin-bottom: 15px;
+		}
+		.cart p {
+			margin: 10px 0;
+		}
+		#cart-items {
+			margin-bottom: 15px;
+			line-height: 2;
+		}
+		.about {
+			text-align: center;
+			background: #111;
+			color: white;
+			padding: 65px 10%;
+		}
+		.about h2 {
+			color: #c9a96e;
+			letter-spacing: 4px;
+			margin-bottom: 20px;
+		}
+		.about p{
+			line-height: 1.9;
+			color: #ddd;
+		}
+		footer {
+			background: #080808;
+			color: #aaa;
+			text-align: center;
+			padding: 25px;
+			font-size: 13px
+		}
+		@media(max-width: 750px) {
+			.products {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			nav a {
+				margin-left: 8px;
+				font-size: 12px;
+			}
+			.product img {
+				height: 210px;
+			}
+		}
+		@media(max-width: 450px) {
+			.products {
+				grid-template-columns: 1fr;
+			}
+			header {
+				justify-content: center;
+			}
+			nav {
+				text-align: center;
+			}
+			nav a {
+				margin: 7px;
+				display: inline-block;
+			}
+		}
+		
+		/* OXYMORON LUXURY DESIGN */
+		/*Main body */
+		body {
+			font-family: 'Georgia', serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f8f6f2;
+			color: #171717;
+		}
+		/*Header */
+		header {
+			background-color: #111111;
+			color: #ffffff;
+			padding: 20px 40px;
+		}
+		/* Logo */
+		.logo {
+			color: #c9a45c;
+			font-size: 28px;
+			font-weight: bold;
+			letter-spacing: 3px;
+
+		}
+		/* Navigation */
+		nav a {
+			color: #ffffff;
+			text-decoration: none;
+			margin: 0 12px;
+			transition: 0.3s;
+		}
+		nav a:hover {
+			color: #c9a45c;
+		}
+		/* Hero section */
+		.hero {
+			background-color: #171717;
+			color: #ffffff;
+			padding: 100px 20px;
+			text-align: center;
+		}
+		.hero h1 {
+			font-size: 48px;
+			letter-spacing: 3px
+
+		}
+		.hero p {
+			color: #d0d0d0;
+			font-size: 17px;
+		}
+		/* Button */
+		.btn,
+		.product button {
+			background-color: #c9a45c;
+			color: #111111;
+			border: none;
+			padding: 13px 25px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+		.btn:hover,
+		.product button:hover {
+			background-color: #a98540;
+			transform: translateY(-2px);
+		}
+		/* Section headings */
+		.section-heading h2 {
+			font-size: 32px;
+			letter-spacing: 2px;
+			text-align: center;
+		}
+		/* Product cards */
+		.product {
+			background-color: #ffffff;
+			border: 1px solid#e8e1d5;
+			border-radius: 5px;
+			overflow: hidden;
+			transition: 0.3s;
+		}
+		.product:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 20px
+			rgba(0,0,0,0.08);
+		}
+		/* Product information*/
+		.product-info {
+			padding: 18px;
+		}
+		.price {
+			color: #a98540;
+			font-weight: bold;
+			font-size: 19px;
+		}
+		/* Cart */
+		.cart {
+			background-color: #ffffff;
+			padding: 25px;
+		}
+		/*About section */
+		.about {
+			background-color: #eee9df;
+			padding: 50px 25px;
+			text-align: center;
+		}
+		/* Footer */
+		footer {
+			background-color: #111111;
+			color: #ffffff;
+			text-align: center;
+			padding: 25px;
+		}
+		/* Mobile responsiveness */
+		@media (max-width: 768px) {
+			header {
+				padding: 15px;
+			}
+			.hero h1 {
+				font-size: 32px;
+			}
+			nav a {
+				margin: 5px;
+			}
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="#home">HOME</a>
+			<a href="#shop">SHOP</a>
+			<a href="#about">ABOUT</a>
+			<a href="#cart">CART (<span id="count">0</span>)</a>
+		</nav>
+	</header>
+	<section class="hero" id="home">
+		<div class="hero-content">
+			<h1>BEYOND ORDINARY</h1>
+			<P>
+				Discover a new standard of fashion.
+				Premium styles, timeless elegance 
+				and
+				confidence in every detail.
+			</P>
+			<a href="#shop" class="btn">EXPLORE COLLECTION</a>
+			<!-- OXYMORON PRODUCT SEARCH -->
+			<div class="search-container">
+				<input type="text" 
+				id="productSearch">
+				placeholder="Search products..."
+			</div>
+		</div>
+	</section>
+	<section class="section" id="shop">
+		<div class="section-heading">
+			<h2>OUR COLLECTION</h2>
+			<p>Style is a statement. Make yours.</p>
+		</div>
+		<div class="filters">
+			<button class="active" onclick="filterProducts('all',this)">ALL</button>
+				
+			<button 
+			onclick="filterProducts('men',this)">MEN</button>
+			<button 
+			onclick="filterProducts('women',this)">WOMEN</button>
+			<button 
+			onclick="filterProducts('shoes',this)">SHOES</button>
+            <button 
+            onclick="filterProducts('accessories',this)">ACCESSORIES</button>
+		</div>
+		<div class="products">
+			<div class="product" data-category="men">
+				<img 
+				src="https://images.unsplash.com/photo-1441986300917-64674bd600d8" alt="classic T-shirt">
+				<div class="product-info">
+					<h3>Classic Premium Tee</h3>
+					<p class="price">GH 180</p>
+					<button 
+					onclick="addToCart('classic Premium Tee',180)">ADD TO CART</button>
+				</div>
+		</div>
+		<div class="product" data-category="women">
+			<img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8" alt="women's fashion">
+			<div class="product-info">
+				<h3>Elegant Fashion Dress</h3>
+				<p class="price">GH 350</p>
+				<button 
+				onclick="addToCart('Elegant Fashion Dress',350)">ADD TO CART</button>
+			</div>
+		</div>
+		<div class="product"
+		data-category="shoes">
+			<img 
+			src="https://images.unsplash.com/photo-1441986300917-64674bd600d8" alt="Sneakers">
+			<div class="product-info">
+				<h3>Signature Sneakers</h3>
+				<p class="price">GH 420</p>
+				<button 
+				onclick="addToCart('Signature Sneakers',420)">ADD TO CART</button>
+			</div>
+		</div>
+		<div class="product"
+		data-category="accessories">
+			<img 
+			src="https://images.unsplash.com/photo-1441986300917-64674bd600d8" alt="watch">
+			<div class="product-info">
+				<h3>Classic Luxury Watch</h3>
+				<p class="price">GH 280</p>
+				<button 
+				onclick="addToCart('Classic Luxury Watch',280)">ADD TO CART</button>
+			</div>
+		</div>
+		<div class="product"
+		data-category="men">
+			<img 
+			src="https://images.unsplash.com/photo-1441986300917-64674bd600d8" alt="Men's outfit">
+			<div class="product-info">
+				<h3>Urban Style Outfit</h3>
+				<p class="price">GH 320</p>
+				<button onclick="addToCart('Urban Style Outfit',320)">ADD TO CART</button>
+			</div>
+		</div>
+		<div class="product"
+		data-category="accessories">
+			<img 
+			src="https://images.unsplash.com/photo-1441986300917-64674bd600d8" alt="Fashion bag">
+			<div class="product-info">
+				<h3>Premium Fashion Bag</h3>
+				<p class="price">GH 250</p>
+				<button onclick="addToCart('Premium Fashion Bag',250)">
+					ADD TO CART
+				</button>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section class="cart" id="cart">
+		<h2>YOUR SHOPPING CART</h2>
+		<div id="cart-items"> Your cart is empty.</div>
+		<h3>Total:GH <span id="total">0</span></h3>
+		<br>
+		<button class="btn"
+		onclick="checkout()">ORDER VIA WHATSAPP</button>
+	</section>
+	<section class="about" id="about">
+		<h2>ABOUT OXYMORON</h2>
+		<p>
+			We believe fashion is more than clothing.
+			It is identity, confidence and expression.
+			Welcome to OXYMORON - Beyond
+			Ordinary
+		</p>
+	</section>
+	<footer>
+		c 2026 OXYMORON FASHION HOUSE.
+		ALL RIGHTS RESERVED.
+	</footer>
+	<script>
+		let cart = [];
+let total = 0;
+
+// ADD TO CART
+function addToCart(name, price) {
+    cart.push({ name, price });
+    total += price;
+    updateCart();
+}
+
+// UPDATE CART
+function updateCart() {
+    document.getElementById('count').textContent = cart.length;
+    document.getElementById('total').textContent = total;
+
+    let output = "";
+
+    cart.forEach((item, index) => {
+        output += `
+            <p>
+                ${item.name} - GH ${item.price}
+                <button onclick="removeItem(${index})">
+                    Remove
+                </button>
+            </p>
+        `;
+    });
+
+    document.getElementById("cart-items").innerHTML =
+        output || "Your cart is empty.";
+}
+
+// REMOVE ITEM
+function removeItem(index) {
+    if (!cart[index]) return;
+
+    total -= cart[index].price;
+    cart.splice(index, 1);
+    updateCart();
+}
+
+// FILTER PRODUCTS
+function filterProducts(category, button) {
+    document.querySelectorAll(".filters button").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".product").forEach(product => {
+        product.style.display =
+            category === "all" ||
+            product.dataset.category === category
+            ? "block" : "none";
+    });
+}
+
+// WHATSAPP CHECKOUT
+function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    const phone = "233549270987";
+
+    let message = "Hello OXYMORON! I want to order:\n";
+
+    cart.forEach(item => {
+        message += `${item.name} - GH ${item.price}\n`;
+    });
+
+    message += `\nTotal: GH ${total}`;
+
+    window.open(
+        "https://wa.me/" + phone + "?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+}
+
+// PRODUCT SEARCH
+const productSearch =
+    document.getElementById('productSearch');
+
+const productCards =
+    document.querySelectorAll('.product');
+
+if (productSearch) {
+    productSearch.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+
+        productCards.forEach(function(product) {
+            const productText =
+                product.textContent.toLowerCase();
+
+            product.style.display =
+                productText.includes(searchTerm)
+                ? 'block'
+                : 'none';
+        });
+    });
+}
+
+console.log("OXYMORON search is ready!");
+	</script>
+
+</body>
+</html>
